@@ -13,7 +13,14 @@ origins = [
 ]
 
 
-app = FastAPI()
+#app = FastAPI()
+
+app = FastAPI(
+    docs_url="/docs",
+    redoc_url="/redoc",
+    openapi_url="/openapi.json"
+)
+
 
 app.add_middleware(
     CORSMiddleware,
@@ -88,4 +95,5 @@ async def websocket_endpoint(ws: WebSocket):
             await ws.receive_text()
     except:
         online_users -= 1
+
 
