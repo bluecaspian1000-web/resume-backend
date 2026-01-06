@@ -36,6 +36,13 @@ def get_db():
     finally:
         db.close()
 
+
+@app.get("/")
+def root():
+    return {"status": "ok"}
+
+
+
 # ---- فرم درخواست پروژه ----
 @app.post("/requests")
 def create_request(data: RequestCreate, db: Session = Depends(get_db)):
@@ -81,3 +88,4 @@ async def websocket_endpoint(ws: WebSocket):
             await ws.receive_text()
     except:
         online_users -= 1
+
