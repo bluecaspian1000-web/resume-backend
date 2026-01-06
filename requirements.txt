@@ -4,4 +4,6 @@ sqlalchemy
 python-jose 
 passlib[bcrypt]
 websockets 
+
 pydantic
+psycopg2-binary
